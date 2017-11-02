@@ -1,0 +1,6 @@
+venv
+images
+config.ini
+*.pyc
+*.sublime-project
+*.sublime-workspace
