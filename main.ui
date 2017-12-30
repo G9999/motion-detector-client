@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Detector - Sistema de Vigilancia</string>
+   <string>Motion Detector Client</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="labelStatus">
      <property name="text">
-      <string>Estado: no identificado</string>
+      <string>Status: unidentified</string>
      </property>
     </widget>
    </item>
@@ -44,7 +44,7 @@
      </property>
      <widget class="QWidget" name="subwindowCamera">
       <property name="windowTitle">
-       <string>Cámara</string>
+       <string>Camera</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
@@ -59,7 +59,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Activar Cámara</string>
+          <string>Activate Camera</string>
          </property>
         </widget>
        </item>
@@ -75,7 +75,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Comenzar Vigilancia</string>
+          <string>Start Surveillance</string>
          </property>
         </widget>
        </item>
@@ -83,14 +83,14 @@
      </widget>
      <widget class="QWidget" name="subwindowOptions">
       <property name="windowTitle">
-       <string>Opciones</string>
+       <string>Options</string>
       </property>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>10</x>
          <y>10</y>
-         <width>312</width>
+         <width>502</width>
          <height>206</height>
         </rect>
        </property>
@@ -114,7 +114,7 @@
           <item>
            <widget class="QLabel" name="labelPassword">
             <property name="text">
-             <string>Contraseña:</string>
+             <string>Password:</string>
             </property>
            </widget>
           </item>
@@ -132,7 +132,7 @@
           <item>
            <widget class="QLabel" name="labelResolution">
             <property name="text">
-             <string>Resolución de fotos:</string>
+             <string>Photos resolution:</string>
             </property>
            </widget>
           </item>
@@ -146,7 +146,7 @@
           <item>
            <widget class="QLabel" name="labelMinutesEmails">
             <property name="text">
-             <string>Rango de minutos entre emails:</string>
+             <string>Minute interval between emails:</string>
             </property>
            </widget>
           </item>
@@ -160,7 +160,7 @@
           <item>
            <widget class="QLabel" name="labelDaysPhotos">
             <property name="text">
-             <string>Conservar fotos de los últimos días:</string>
+             <string>Keep photos from the last days:</string>
             </property>
            </widget>
           </item>
@@ -187,7 +187,7 @@
           <item>
            <widget class="QPushButton" name="buttonApply">
             <property name="text">
-             <string>Aplicar cambios</string>
+             <string>Apply changes</string>
             </property>
            </widget>
           </item>

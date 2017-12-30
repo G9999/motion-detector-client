@@ -1,0 +1,147 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'main.ui'
+#
+# Created by: PyQt4 UI code generator 4.12.1
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt4 import QtCore, QtGui
+
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
+
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName(_fromUtf8("Dialog"))
+        Dialog.resize(349, 632)
+        self.verticalLayout = QtGui.QVBoxLayout(Dialog)
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.labelStatus = QtGui.QLabel(Dialog)
+        self.labelStatus.setObjectName(_fromUtf8("labelStatus"))
+        self.verticalLayout.addWidget(self.labelStatus)
+        self.label = QtGui.QLabel(Dialog)
+        self.label.setText(_fromUtf8(""))
+        self.label.setPixmap(QtGui.QPixmap(_fromUtf8("logo.bmp")))
+        self.label.setObjectName(_fromUtf8("label"))
+        self.verticalLayout.addWidget(self.label)
+        self.mdiArea = QtGui.QMdiArea(Dialog)
+        self.mdiArea.setActivationOrder(QtGui.QMdiArea.CreationOrder)
+        self.mdiArea.setViewMode(QtGui.QMdiArea.TabbedView)
+        self.mdiArea.setTabShape(QtGui.QTabWidget.Rounded)
+        self.mdiArea.setObjectName(_fromUtf8("mdiArea"))
+        self.subwindowCamera = QtGui.QWidget()
+        self.subwindowCamera.setObjectName(_fromUtf8("subwindowCamera"))
+        self.verticalLayout_2 = QtGui.QVBoxLayout(self.subwindowCamera)
+        self.verticalLayout_2.setMargin(0)
+        self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
+        self.buttonCamera = QtGui.QPushButton(self.subwindowCamera)
+        self.buttonCamera.setEnabled(False)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.MinimumExpanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.buttonCamera.sizePolicy().hasHeightForWidth())
+        self.buttonCamera.setSizePolicy(sizePolicy)
+        self.buttonCamera.setObjectName(_fromUtf8("buttonCamera"))
+        self.verticalLayout_2.addWidget(self.buttonCamera)
+        self.buttonSurveillance = QtGui.QPushButton(self.subwindowCamera)
+        self.buttonSurveillance.setEnabled(False)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.MinimumExpanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.buttonSurveillance.sizePolicy().hasHeightForWidth())
+        self.buttonSurveillance.setSizePolicy(sizePolicy)
+        self.buttonSurveillance.setObjectName(_fromUtf8("buttonSurveillance"))
+        self.verticalLayout_2.addWidget(self.buttonSurveillance)
+        self.subwindowOptions = QtGui.QWidget()
+        self.subwindowOptions.setObjectName(_fromUtf8("subwindowOptions"))
+        self.layoutWidget = QtGui.QWidget(self.subwindowOptions)
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 502, 206))
+        self.layoutWidget.setObjectName(_fromUtf8("layoutWidget"))
+        self.verticalLayout_3 = QtGui.QVBoxLayout(self.layoutWidget)
+        self.verticalLayout_3.setMargin(0)
+        self.verticalLayout_3.setObjectName(_fromUtf8("verticalLayout_3"))
+        self.horizontalLayout = QtGui.QHBoxLayout()
+        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+        self.label_2 = QtGui.QLabel(self.layoutWidget)
+        self.label_2.setObjectName(_fromUtf8("label_2"))
+        self.horizontalLayout.addWidget(self.label_2)
+        self.lineEmail = QtGui.QLineEdit(self.layoutWidget)
+        self.lineEmail.setObjectName(_fromUtf8("lineEmail"))
+        self.horizontalLayout.addWidget(self.lineEmail)
+        self.verticalLayout_3.addLayout(self.horizontalLayout)
+        self.horizontalLayout_2 = QtGui.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
+        self.labelPassword = QtGui.QLabel(self.layoutWidget)
+        self.labelPassword.setObjectName(_fromUtf8("labelPassword"))
+        self.horizontalLayout_2.addWidget(self.labelPassword)
+        self.linePassword = QtGui.QLineEdit(self.layoutWidget)
+        self.linePassword.setEchoMode(QtGui.QLineEdit.Password)
+        self.linePassword.setObjectName(_fromUtf8("linePassword"))
+        self.horizontalLayout_2.addWidget(self.linePassword)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_2)
+        self.horizontalLayout_3 = QtGui.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(_fromUtf8("horizontalLayout_3"))
+        self.labelResolution = QtGui.QLabel(self.layoutWidget)
+        self.labelResolution.setObjectName(_fromUtf8("labelResolution"))
+        self.horizontalLayout_3.addWidget(self.labelResolution)
+        self.comboResolution = QtGui.QComboBox(self.layoutWidget)
+        self.comboResolution.setObjectName(_fromUtf8("comboResolution"))
+        self.horizontalLayout_3.addWidget(self.comboResolution)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_3)
+        self.horizontalLayout_4 = QtGui.QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(_fromUtf8("horizontalLayout_4"))
+        self.labelMinutesEmails = QtGui.QLabel(self.layoutWidget)
+        self.labelMinutesEmails.setObjectName(_fromUtf8("labelMinutesEmails"))
+        self.horizontalLayout_4.addWidget(self.labelMinutesEmails)
+        self.lineMinutesEmails = QtGui.QLineEdit(self.layoutWidget)
+        self.lineMinutesEmails.setObjectName(_fromUtf8("lineMinutesEmails"))
+        self.horizontalLayout_4.addWidget(self.lineMinutesEmails)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_4)
+        self.horizontalLayout_5 = QtGui.QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(_fromUtf8("horizontalLayout_5"))
+        self.labelDaysPhotos = QtGui.QLabel(self.layoutWidget)
+        self.labelDaysPhotos.setObjectName(_fromUtf8("labelDaysPhotos"))
+        self.horizontalLayout_5.addWidget(self.labelDaysPhotos)
+        self.lineDaysPhotos = QtGui.QLineEdit(self.layoutWidget)
+        self.lineDaysPhotos.setObjectName(_fromUtf8("lineDaysPhotos"))
+        self.horizontalLayout_5.addWidget(self.lineDaysPhotos)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_5)
+        self.horizontalLayout_6 = QtGui.QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(_fromUtf8("horizontalLayout_6"))
+        spacerItem = QtGui.QSpacerItem(168, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem)
+        self.buttonApply = QtGui.QPushButton(self.layoutWidget)
+        self.buttonApply.setObjectName(_fromUtf8("buttonApply"))
+        self.horizontalLayout_6.addWidget(self.buttonApply)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_6)
+        self.verticalLayout.addWidget(self.mdiArea)
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        Dialog.setWindowTitle(_translate("Dialog", "Motion Detector Client", None))
+        self.labelStatus.setText(_translate("Dialog", "Status: unidentified", None))
+        self.subwindowCamera.setWindowTitle(_translate("Dialog", "Camera", None))
+        self.buttonCamera.setText(_translate("Dialog", "Activate Camera", None))
+        self.buttonSurveillance.setText(_translate("Dialog", "Start Surveillance", None))
+        self.subwindowOptions.setWindowTitle(_translate("Dialog", "Options", None))
+        self.label_2.setText(_translate("Dialog", "Email:", None))
+        self.labelPassword.setText(_translate("Dialog", "Password:", None))
+        self.labelResolution.setText(_translate("Dialog", "Photos resolution:", None))
+        self.labelMinutesEmails.setText(_translate("Dialog", "Minute interval between emails:", None))
+        self.labelDaysPhotos.setText(_translate("Dialog", "Keep photos from the last days:", None))
+        self.buttonApply.setText(_translate("Dialog", "Apply changes", None))
+
