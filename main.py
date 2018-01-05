@@ -14,6 +14,7 @@ from email.mime.multipart import MIMEMultipart
 
 # Third party stuff
 import cv2
+import numpy as np
 from PyQt4 import QtCore, QtGui
 
 try:
@@ -54,10 +55,20 @@ def delete_photos(days):
                 os.remove("images/" + xfile)
 
 
+def get_frames_difference(frame, prev_frame):
+    frame_diff = cv2.absdiff(frame, prev_frame)
+    gray_diff = cv2.cvtColor(frame_diff, cv2.COLOR_BGR2GRAY)
+    thrs = DEFAULT_THRESHOLD
+    ret, motion_mask = cv2.threshold(gray_diff, thrs, 1, cv2.THRESH_BINARY)
+    difference = np.sum(motion_mask)
+    return difference
+
+
 # class to capture the video
 class VideoCapture(QtGui.QWidget):
     def __init__(self, parent):
         super(QtGui.QWidget, self).__init__()
+        self.parent = parent
         self.cap = cv2.VideoCapture(0)
         self.resolution = '640x512'
         if self.resolution == '1280x1024':
@@ -67,6 +78,8 @@ class VideoCapture(QtGui.QWidget):
             self.cap.set(3, 640)
             self.cap.set(4, 512)
         self.video_frame = QtGui.QLabel()
+        self.prev_frame = None
+        self.triggered_frame = 0
         parent.layout.addWidget(self.video_frame)
 
     def nextFrameSlot(self):
@@ -76,6 +89,23 @@ class VideoCapture(QtGui.QWidget):
                            QtGui.QImage.Format_RGB888)
         pix = QtGui.QPixmap.fromImage(img)
         self.video_frame.setPixmap(pix)
+
+        if self.parent.parent.status == 'watching':
+            # check difference between current and previous frame
+            difference = get_frames_difference(frame, self.prev_frame)
+            if difference > 1000:  # Adjust value accoring to camera resolution
+                self.triggered_frame += 1
+                """
+                Check if the difference is longer than 15 frames to preven
+                incorrect detections
+                """
+                if self.triggered_frame > 15:
+                    self.triggered_frame = 0
+                    print('Motion detected!')
+            else:
+                self.triggered_frame = 0
+
+        self.prev_frame = frame
 
     def start(self):
         self.timer = QtCore.QTimer()
@@ -91,8 +121,9 @@ class VideoCapture(QtGui.QWidget):
 
 
 class VideoDisplayWidget(QtGui.QWidget):
-    def __init__(self):
+    def __init__(self, parent):
         super(VideoDisplayWidget, self).__init__()
+        self.parent = parent
         self.layout = QtGui.QFormLayout(self)
         self.setLayout(self.layout)
 
@@ -181,7 +212,7 @@ class App(Ui_Dialog):
             self.buttonSurveillance.setText('Start Surveillance')
         else:
             self.status = 'watching'
-            self.labelStatus.setText('Status: Wantching')
+            self.labelStatus.setText('Status: watching')
             self.buttonSurveillance.setText('Stop Surveillance')
 
     def applyChanges(self):
@@ -245,7 +276,7 @@ if __name__ == '__main__':
     ex.buttonSurveillance.clicked.connect(ex.surveillance)
     ex.buttonApply.clicked.connect(ex.applyChanges)
 
-    ex.videoDisplayWidget = VideoDisplayWidget()
+    ex.videoDisplayWidget = VideoDisplayWidget(ex)
     ex.horizontalLayoutCamera.addWidget(ex.videoDisplayWidget)
 
     widget.show()
